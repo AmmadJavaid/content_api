@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_071759) do
+ActiveRecord::Schema.define(version: 2020_04_26_072252) do
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2020_04_26_071759) do
     t.text "plot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.datetime "expire_at"
+    t.decimal "price"
+    t.string "content_quality"
+    t.string "purchase_of_type"
+    t.integer "purchase_of_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_of_type", "purchase_of_id"], name: "index_purchases_on_purchase_of_type_and_purchase_of_id"
   end
 
   create_table "seasons", force: :cascade do |t|
