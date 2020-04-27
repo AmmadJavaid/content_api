@@ -3,7 +3,11 @@ module Response
     render json: objects, status: status_code
   end
 
-  def response_with_status status = :bad_request
-    render nothing: true, status: status
+  def unsuccessful_response message, status = :bad_request
+    render json: {data: {success: false, message: message}}, status: status
+  end
+
+  def successful_response message, status = :ok
+    render json: {data: {success: true, message: message}}, status: status
   end
 end

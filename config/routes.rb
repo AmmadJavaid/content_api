@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         collection do
           get 'movies', action: 'movies'
           get 'seasons', action: 'seasons'
-          post 'purcahse', action: 'purcahse'
+          post 'purcahase', action: 'purchase'
           get 'library/:user_id', action: 'library'
         end
       end

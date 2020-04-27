@@ -17,9 +17,23 @@ module Api
       end
 
       def purchase
+        purchase = Purchase.new(purchase_params)
+        purchase.purchase_of_type = purchase.purchase_of_type.classify
+
+        if purchase.save
+          successful_response('Purchased successfully')
+        else
+          unsuccessful_response(purchase.errors.full_messages.to_sentence)
+        end
       end
 
       def library
+      end
+
+      private
+
+      def purchase_params
+        params.permit(:user_id, :purchase_of_type, :purchase_of_id, :price, :content_quality)
       end
     end
   end
