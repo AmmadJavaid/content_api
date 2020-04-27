@@ -5,8 +5,8 @@ module Api
       end
 
       def movies
-        movies = Movie.all
-        json_response(MovieSerializer.new(movies).serializable_hash)
+        movies = Movie.ordered
+        json_response MovieSerializer.new(movies).serializable_hash
       end
 
       def seasons

@@ -1,4 +1,3 @@
-class MovieSerializer
-  include FastJsonapi::ObjectSerializer
+class MovieSerializer < ApplicationSerializer
   attributes :title, :plot
 end
