@@ -1,4 +1,5 @@
 FactoryBot.define do
-  factory :random_question, class: Question do
+  factory :movies, class: 'Movie' do
+    title { Faker::Movie.quote}
   end
 end
