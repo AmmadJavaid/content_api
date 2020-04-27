@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :content, only: [:index] do
         collection do
           get 'movies', action: 'movies'
-          get 'seasons', action: 'movies'
+          get 'seasons', action: 'seasons'
           post 'purcahse', action: 'purcahse'
           get 'library/:user_id', action: 'library'
         end

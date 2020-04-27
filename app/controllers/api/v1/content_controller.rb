@@ -10,6 +10,10 @@ module Api
       end
 
       def seasons
+        seasons = Season.includes(:episodes).ordered.first
+        options = {include: [:episodes], params: { episodes: true }}
+
+        json_response SeasonSerializer.new(seasons, options).serializable_hash
       end
 
       def purchase
