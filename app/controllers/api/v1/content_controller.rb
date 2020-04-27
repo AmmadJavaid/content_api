@@ -11,7 +11,7 @@ module Api
       end
 
       def seasons
-        seasons = Season.includes(:episodes).ordered.first
+        seasons = Season.includes(:episodes).ordered
         options = {include: [:episodes], params: { episodes: true }}
 
         json_response SeasonSerializer.new(seasons, options).serializable_hash
@@ -22,7 +22,7 @@ module Api
         purchase.purchase_of_type = purchase.purchase_of_type.classify
 
         if purchase.save
-          successful_response('Purchased successfully')
+          json_response PurchaseSerializer.new(purchase).serializable_hash
         else
           unsuccessful_response(purchase.errors.full_messages.to_sentence)
         end
@@ -30,7 +30,7 @@ module Api
 
       def library
         purchases = FetchLibraryService.new(params[:user_id]).execute
-        json_response LibrarySerializer.new(purchases).serializable_hash
+        json_response PurchaseSerializer.new(purchases).serializable_hash
       end
 
       private

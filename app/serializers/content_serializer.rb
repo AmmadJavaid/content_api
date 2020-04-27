@@ -1,4 +1,4 @@
-class ContentSerializer
+class ContentSerializer < ApplicationSerializer
   include FastJsonapi::ObjectSerializer
 
   attribute :title do |record|

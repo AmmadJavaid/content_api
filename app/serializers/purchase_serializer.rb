@@ -1,4 +1,4 @@
-class LibrarySerializer < ApplicationSerializer
+class PurchaseSerializer < ApplicationSerializer
   set_type :purchase
 
   attribute :expire_at do |record|
