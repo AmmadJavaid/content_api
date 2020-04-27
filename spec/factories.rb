@@ -23,4 +23,8 @@ FactoryBot.define do
       end
     end
   end
+
+  factory :user do
+    email {'kh.ammad123@gmail.com'}
+  end
 end
