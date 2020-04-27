@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "get all movies", type: :request do
+describe "Movies", type: :request do
   let!(:movies) {FactoryBot.create_list(:movies, 10)}
   before {get '/api/v1/content/movies'}
 

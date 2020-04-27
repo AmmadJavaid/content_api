@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "get all season by episode", type: :request do
+describe "Season and Episode", type: :request do
   let!(:season_with_episodes) {FactoryBot.create_list(:season_with_episodes, 5)}
   before {get '/api/v1/content/seasons'}
 
