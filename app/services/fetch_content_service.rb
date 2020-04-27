@@ -3,6 +3,8 @@ class FetchContentService
   def self.execute
     sql = "#{movies_sql} Union All #{season_sql} ORDER BY created_at DESC"
     result = ActiveRecord::Base.connection.execute(sql)
+
+    result
   end
 
   private
