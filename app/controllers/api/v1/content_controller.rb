@@ -2,6 +2,7 @@ module Api
   module V1
     class ContentController < BaseController
       def index
+        json_response ContentSerializer.new(FetchContentService.execute).serializable_hash
       end
 
       def movies
