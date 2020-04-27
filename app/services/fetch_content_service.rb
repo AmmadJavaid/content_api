@@ -1,5 +1,4 @@
 class FetchContentService
-  attr_accessor :id, :type, :title, :plot
 
   def self.execute
     sql = "#{movies_sql} Union All #{season_sql} ORDER BY created_at DESC"

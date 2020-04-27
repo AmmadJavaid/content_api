@@ -29,7 +29,7 @@ module Api
       end
 
       def library
-        purchases = Purchase.includes(:purchase_of).where(user_id: params[:user_id]).alive.ordered
+        purchases = FetchLibraryService.new(params[:user_id]).execute
         json_response LibrarySerializer.new(purchases).serializable_hash
       end
 
